@@ -6,7 +6,7 @@ import superman from "../assets/superman.jpg";
 // --- GitHub Login Button ---
 function GitHubLoginButton() {
   const handleLogin = () => {
-    window.location.href = "http://localhost:3000/auth/github";
+    window.location.href = `${import.meta.env.VITE_BACKEND_URL}/auth/github`;
   };
 
   return (
@@ -36,7 +36,7 @@ function ThemeButton({ label, onClick, isActive }) {
 }
 
 const handleLogout = async () => {
-  await fetch("http://localhost:3000/auth/logout", {
+  await fetch(`${import.meta.env.VITE_BACKEND_URL}/auth/logout`, {
     method: "POST",
     credentials: "include",
   });
@@ -64,7 +64,7 @@ function Card() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch("http://localhost:3000/api/wrapped", {
+        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/wrapped`, {
           credentials: "include",
         });
 
